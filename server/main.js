@@ -1,5 +1,8 @@
-import add from './../imports/math';
-import { greetUser } from './../imports/utils';
+import {Meteor} from 'meteor/meteor';
+import {Players} from './../imports/api/players';
 
-console.log('Log from /server/main.js');
-console.log(add(1, 13));
+Meteor.startup(function() {
+
+
+
+});
