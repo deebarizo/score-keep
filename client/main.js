@@ -5,13 +5,18 @@ import {Tracker} from 'meteor/tracker';
 
 import {Players} from './../imports/api/players';
 
-const renderPlayers = function(players) {
-	return players.map(function(player) {
-		return <p key={player._id}>{player.name} has {player.score} point(s).</p>;
+const renderPlayers = (players) => {
+	return players.map((player) => {
+		return (
+			<p key={player._id}>
+				{player.name} has {player.score} point(s).
+				<button onClick={() => Players.remove({ "_id": player._id }) }>X</button>
+			</p>
+		);
 	});
 };
 
-const handleSubmit = function(e) {
+const handleSubmit = (e) => {
 	let playerName = e.target.playerName.value;
 	
 	e.preventDefault();
@@ -26,8 +31,8 @@ const handleSubmit = function(e) {
 	}
 };
 
-Meteor.startup(function() {
-	Tracker.autorun(function() {
+Meteor.startup(() => {
+	Tracker.autorun(() => {
 		let players = Players.find().fetch();
 
 		let title = 'Score Keep';
