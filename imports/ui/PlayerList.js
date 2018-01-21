@@ -7,7 +7,7 @@ export default class PlayerList extends React.Component {
 		if (this.props.players.length === 0) {
 			return (
 				<p>
-					Add the first player to get started.
+					Add the first player to get started!
 				</p>
 			);
 		}
