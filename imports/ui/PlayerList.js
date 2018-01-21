@@ -4,6 +4,14 @@ import PropTypes from 'prop-types';
 
 export default class PlayerList extends React.Component {
 	renderPlayers() {
+		if (this.props.players.length === 0) {
+			return (
+				<p>
+					Add the first player to get started.
+				</p>
+			);
+		}
+
 		return this.props.players.map((player) => {
 			return (
 				<Player 

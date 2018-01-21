@@ -4,22 +4,12 @@ import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 
 import {Players} from './../imports/api/players';
-import TitleBar from './../imports/ui/TitleBar';
-import AddPlayer from './../imports/ui/AddPlayer';
-import PlayerList from './../imports/ui/PlayerList';
+import App from './../imports/ui/App';
 
 Meteor.startup(() => {
 	Tracker.autorun(() => {
 		let players = Players.find().fetch();
 
-		let jsx = (
-			<div>
-				<TitleBar />
-				<PlayerList players={players} />
-				<AddPlayer />
-			</div>
-		);
-
-		ReactDOM.render(jsx, document.getElementById('app'));
+		ReactDOM.render(<App players={players} />, document.getElementById('app'));
 	});
 });
